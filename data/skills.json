@@ -1,0 +1,59 @@
+[
+    {
+        "name": "Firebase",
+        "icon": "https://img.icons8.com/color/48/000000/firebase.png"
+    },
+    {
+        "name": "Android",
+        "icon": "https://img.icons8.com/fluency/48/000000/android-os.png"
+    },
+    {
+        "name": "React Native",
+        "icon": "https://img.icons8.com/?size=100&id=wPohyHO_qO1a&format=png&color=000000"
+    },
+    {
+        "name": "HTML5",
+        "icon": "https://img.icons8.com/color/48/000000/html-5--v1.png"
+    },
+    {
+        "name": "CSS3",
+        "icon": "https://img.icons8.com/color/48/000000/css3.png"
+    },
+    {
+        "name": "JavaScript",
+        "icon": "https://img.icons8.com/color/48/000000/javascript--v1.png"
+    },
+    {
+        "name": "Java",
+        "icon": "https://img.icons8.com/?size=100&id=lTKW3iI3wIT0&format=png&color=000000"
+    },
+    {
+        "name": "Spring Boot",
+        "icon": "https://img.icons8.com/?size=100&id=A3Ulk2RcONKs&format=png&color=000000"
+    },  
+    {
+        "name": "Hibernate",
+        "icon": "https://avatars.githubusercontent.com/u/348262?v=4"
+    }, 
+    {
+        "name": "Python",
+        "icon": "https://img.icons8.com/color/48/000000/python--v1.png"
+    },
+    {
+        "name": "C++",
+        "icon": "https://img.icons8.com/color/48/000000/c-plus-plus-logo.png"
+    },
+    {
+        "name": "MySQL",
+        "icon": "https://img.icons8.com/color/48/000000/mysql-logo.png"
+    },
+    {
+        "name": "Git VCS",
+        "icon": "https://img.icons8.com/color/48/000000/git.png"
+    },
+    {
+        "name": "GitHub",
+        "icon": "https://img.icons8.com/?size=100&id=AZOZNnY73haj&format=png&color=000000"
+    }
+    
+]

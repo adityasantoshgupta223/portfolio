@@ -1,0 +1,489 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Header Section */
+
+header {
+    width: 100vw;
+}
+
+.barBox{
+    padding: 5px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 2px solid white;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 2px;
+}
+
+.lineBar{
+    display: block;
+    width: 22px;
+    height: 3px;
+    background-color: white;
+    transition: all 0.3s ease-in-out;
+}
+
+.barBox.active .lineBar:nth-child(2){
+    opacity: 0;
+}
+.barBox.active .lineBar:nth-child(1){
+    transform: translateY(5px) rotateZ(45deg);
+}
+.barBox.active .lineBar:nth-child(3){
+    transform: translateY(-5px) rotateZ(-45deg);
+}
+
+nav {
+    width: 100%;
+    padding: 10px 5px;
+    display: flex;
+    justify-content: space-around;
+    background-color: rgb(64, 64, 223);
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    position: fixed;
+    z-index: 1000;
+}
+
+nav ul {
+    display: flex;
+    gap: 10px;
+    list-style: none;
+}
+
+nav ul li {
+    padding: 5px;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+nav ul a {
+    text-decoration: none;
+    color: white;
+}
+
+nav ul li:hover {
+    background-color: white;
+    color: darkblue;
+    transition-timing-function: ease-in-out;
+}
+
+nav ul li.buttonActive{
+    background: rgb(33, 0, 170);
+    color: white;
+    transition-timing-function: ease-in-out; 
+}
+
+
+
+/*  Hero Section */
+.main-1 {
+    width: 100%;
+    min-height: 100vh;
+    padding-top: 8%;
+    padding-bottom: 10px;
+    display: flex;
+    background-image: linear-gradient(to top, lightblue, blue);
+}
+/* flex: .5; */
+
+.left-section,
+.right-section {
+    flex: 0 0 50%;
+    /* width: 100%;
+    height: 100%; */
+}
+
+.action button {
+    border-color: white;
+    color: white;
+}
+
+.action button:hover {
+    border: 2px solid blue;
+}
+
+.left-section {
+    width: 100%;
+    padding: 0 10px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.heroText {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+}
+
+#headerText {
+    font-size: 30px;
+}
+
+.right-section img {
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+}
+
+#listText {
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Project Section */
+.projects, .about, .cert, .skills {
+    width: 100%;
+    min-height: calc(100vh - 50px);
+    padding: 60px 15px 10px 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(57, 4, 247);
+    color: white;
+}
+
+.container, .cert-container {
+    margin-top: 40px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.card {
+    width: 100%;
+    padding: 10px;
+    box-shadow: 0 0 12px rgb(102, 94, 94);
+    border-radius: 5px;
+    background-color: white;
+    font-size: large;
+    cursor: pointer;
+    transition: transform 0.3s ease-out, background-color 0.3s ease-out;
+    color: black;
+}
+
+.card-box {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 20px;
+}
+
+.info-box {
+    width: 100%;
+    gap: 5px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+     line-clamp: 3;
+     overflow: hidden; 
+     
+    overflow-wrap: break-word;
+    word-break: normal;
+    hyphens: auto;
+}
+
+.info-box p {
+    max-lines: 2;
+    line-clamp: 2;
+}
+
+.photo {
+    width: 200px;
+    aspect-ratio: 2/1;
+}
+
+.photo img {
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+    background-size: cover;
+    background-position: center;
+}
+
+.image-error {
+    border: 2px solid rgb(73, 72, 72);
+}
+
+.btn-box,
+.actions {
+    padding: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+button {
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 2px solid blue;
+    color: blue;
+    background-color: transparent;
+    font-size: 15px;
+}
+
+button:hover {
+    background-color: blue;
+    color: white;
+}
+
+.hide {
+    display: none;
+}
+
+.card:hover {
+    transform: scale(1.005);
+}
+
+/* About Section */
+.about{
+    padding-bottom: 0;
+}
+
+#listText:hover {
+    border-bottom: 2px solid white;
+}
+
+#linkText {
+    width: (100vw - 12px);
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about .bigSection {
+    height: 100%;
+    display: flex;
+    gap: 20px;
+    align-items: stretch;
+}
+
+
+.left-section-2 {
+    height: auto;
+    min-height: calc(100vh - 60px);
+    padding: 10px;
+    background-color: whitesmoke;
+    color: black;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-direction: column;
+}
+
+.right-section-2 {
+    padding: 20px 10px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+
+/* Bar Seperator */
+
+.bar {
+    width: 100%;
+    height: 15px;
+    background-color: white;
+}
+
+
+.cert-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    justify-items: center;
+}
+
+.certCard {
+    width: 100%;
+    max-width: 250px;
+    height: 300px;
+    padding: 15px;
+    box-shadow: 0 0 12px rgb(102, 94, 94);
+    border-radius: 5px;
+    gap: 2px;
+    cursor: pointer;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease-in;
+}
+
+.imgBox {
+    width: 100%;
+    height: 80%;
+}
+
+.imgBox img {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    background-size: cover;
+    background-position: center;
+}
+
+.imgBox object {
+    width: 100%;
+    height: 100%;
+}
+
+.certCard:hover {
+    transform: scale(1.05);
+}
+
+
+
+.skill-container .row {
+    width: 100%;
+    padding-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1.5rem;
+
+}
+
+.skill-card {
+    padding: 5px;
+    width: 100%;
+    max-width: 120px;
+    height: 90px;
+    background-color: white;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.skill-card img {
+    width: 50px;
+    height: 50px;
+    background-size: cover;
+    background-position: center;
+}
+
+.skill-card span {
+    color: blue;
+    font-weight: 500;
+    font-size: 18px;
+    /* text-align: center; */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.skill-card:hover {
+    transform: scale(1.2);
+    box-shadow: 0 10px 30px rgba(0,0,0,.18);
+}
+
+
+@media (max-width: 880px) {
+    nav{
+        padding-left: 15px;
+        padding-right: 15px;
+        justify-content: space-between;
+    }
+    .box{
+        width: 250px;
+        height: 100vh;
+        background: transparent;
+        backdrop-filter: blur(10px);
+        position: absolute;
+        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
+        top: 0;
+        right: 0;
+        z-index: 999;
+        padding: 5rem 1.5rem;
+        display: none;
+    }
+    .box.active{
+        display: flex;
+    }
+    .box ul{
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .barBox{
+        display: flex;
+        align-items: flex-end;
+        justify-self: flex-end;
+        z-index: 1000;
+    }
+
+    .barBox.active{
+        display: flex;
+    }
+    .left-section-2{
+        margin-top: 25px;
+    }
+    .left-section-2, .right-section-2{
+        width: 50%;
+    }
+
+    .cert-container{
+    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+    }
+}
+
+@media (max-width: 430px) {
+    #headerText{
+        font-size: 20px;
+    }
+    .main-1{
+        flex-direction: column-reverse;
+        padding-top: 60px;
+        gap: 30px;
+    }
+    .box{
+        width: 100%;
+    }
+    .left-section-2{
+        height: 100%;
+        min-height: calc(100% - 50px);
+        border-radius: 5px;
+    }
+    .left-section-2, .right-section-2{
+         width: 100%;
+    }
+    .right-section-2{
+        height: 50%;
+        align-items: center;
+    }
+    .about .bigSection{
+       flex-direction: column;
+    }
+
+    .card-box{
+        flex-direction: column-reverse;
+    }
+    
+    .btn-box{
+     width: 100%;
+     flex-direction: column;
+    }
+}

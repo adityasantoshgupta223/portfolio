@@ -1,0 +1,24 @@
+[
+    {
+        "id": 1,
+        "title": "Currency Converter",
+        "desc": "A responsive Currency Converter web application that enables users to convert between multiple currencies using real-time exchange rates. The application fetches live currency data to ensure accurate and up-to-date conversions. Built with a clean, intuitive interface, it delivers a fast and seamless user experience across different devices.",
+        "image": "https://drive.google.com/thumbnail?id=185OBnqTM_YWgRXTRyA3RsrpWsUCfhjhd&sz=w1000",
+        "github": "https://github.com/adityasantoshgupta223/Currency-Converter",
+        "liveDemo": "https://adityasantoshgupta223.github.io/Currency-Converter/"
+    },
+    {
+        "id": 2,
+        "title": "Webstart CLI",
+        "desc": "A lightweight Python-based command-line tool that instantly scaffolds a frontend starter project with pre-configured HTML, CSS, and JavaScript files named after the project. It automates the initial setup process and launches the generated project directly in Visual Studio Code, enabling developers to start building without manual configuration.",
+        "image": "https://drive.google.com/thumbnail?id=1ETLD6VvRpdB8sSltjRbd4bVYNcb-Rnji",
+        "github": "https://github.com/adityasantoshgupta223/webstart-cli"
+    },
+    {
+        "id": 3,
+        "title": "Finance Dashboard Backened-Spring Boot",
+        "desc": "Developed a RESTful backend for a finance dashboard application using Java and Spring Boot. Implemented secure APIs for managing financial data, integrated MySQL for persistent storage, and followed a layered architecture with Hibernate/JPA for efficient database operations. Designed the backend to support scalable and maintainable application development.",
+        "image": "https://drive.google.com/thumbnail?id=1CB7VcaU6GGE2SZGJXvNNOxRzSZNeBAXY&sz=w1000",
+        "github": "https://github.com/adityasantoshgupta223/finance-dashboard-backend"
+    } 
+]
