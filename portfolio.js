@@ -78,7 +78,7 @@ function getProjectsData() {
 }
 
 function getCertData(){
-    fetch("data/cert.json")
+    fetch("../data/cert.json")
     .then(response => response.json())
     .then((certs) => {
       let certContainer = document.querySelector(".cert-container");
@@ -98,7 +98,7 @@ function getCertData(){
 
 
 function getSkillsData() {
-  fetch("data/skills.json")
+  fetch("../data/skills.json")
     .then((response) => response.json())
     .then((skills) => {
       let skillContainer = document.querySelector(".row");
