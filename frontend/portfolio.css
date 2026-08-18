@@ -231,6 +231,10 @@ nav ul li.buttonActive{
     gap: 10px;
 }
 
+.btn-box a  button{
+    width: 100%;
+}
+
 button {
     padding: 10px;
     border-radius: 5px;

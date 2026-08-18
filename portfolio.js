@@ -73,7 +73,6 @@ function getProjectsData() {
     })
     .finally(() => {
       loader.style.animation = 'none';
-      // loaderBox.style.display = 'none';
       loaderBox.remove()
     })
 }
