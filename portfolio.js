@@ -33,7 +33,10 @@ function hideButtons(card) {
 
 
 function getProjectsData() {
-  fetch("data/projects.json")
+  let loaderBox = document.querySelector(".loaderBox");
+  let loader = document.querySelector(".loader");
+  
+  fetch(`${API}/projects`)
     .then((response) => response.json())
     .then((projects) => {
         
@@ -45,21 +48,34 @@ function getProjectsData() {
         <div class="card-box">
           <div class="info-box">
           <p><b><span id="project-title">${proj.title}</span></b></p>
-          <p id="project-desc">${proj.desc}</p>
+          <p id="project-desc">${proj.description}</p>
           </div>
         <div class="photo">
-         <img src="${proj.image}"  onerror="this.onerror=null; this.src='assets/images/upload error.svg'; this.classList.add('image-error');"  alt="">
+         <img src="${API}/projects/images/${proj.thumbnailId}"  onerror="this.onerror=null; this.src='assets/images/upload error.svg'; this.classList.add('image-error');"  alt="">
         </div>
         </div>
         <div class="btn-box hide">
-         <button onclick='window.open("${proj.github}")'>Visit GitHub Repo</button>
+         <button onclick='window.open("${proj.repoLink}")'>Visit GitHub Repo</button>
          ${
-           proj.liveDemo
-             ? `<button onclick='window.open("${proj.liveDemo}")'>Live Demo</button>`
+           proj.liveLink
+             ? `<button onclick='window.open("${proj.liveLink}")'>Live Demo</button>`
              : ""
-         } </div>`;
+         }
+         ${
+            proj.apkDownloadLink
+            ? `<a href="${proj.apkDownloadLink}">
+          <button>Download APK</button>
+            </a>`
+            : ""
+          }
+          </div>`;
       });
-    });
+    })
+    .finally(() => {
+      loader.style.animation = 'none';
+      // loaderBox.style.display = 'none';
+      loaderBox.remove()
+    })
 }
 
 function getCertData(){
