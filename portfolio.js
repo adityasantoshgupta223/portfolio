@@ -2,16 +2,16 @@
 let barBox = document.querySelector(".barBox");
 let box = document.querySelector(".box");
 
-barBox.addEventListener('click', ()=>{
-    barBox.classList.toggle('active');
-    box.classList.toggle('active');
+barBox.addEventListener('click', () => {
+  barBox.classList.toggle('active');
+  box.classList.toggle('active');
 })
 
 
 let menuElements = document.querySelectorAll("nav ul li");
 
 menuElements.forEach(element => {
-  element.addEventListener('click', () =>{
+  element.addEventListener('click', () => {
     menuElements.forEach(element => element.classList.remove("buttonActive"));
     element.classList.add("buttonActive");
   })
@@ -30,17 +30,34 @@ function hideButtons(card) {
 
 }
 
+function showLoader(container) {
+    container.innerHTML = `
+      <div  style="justify-self: center; align-self: center;" class="loaderBox">
+        <h2>Please Wait...</h2>
+        <div class="loader"></div>
+       </div>
+    `;
+}
+
+function hideLoader(container) {
+    const loader = container.querySelector(".loaderBox");
+
+    if (loader) {
+        loader.remove();
+    }
+}
 
 
 function getProjectsData() {
-  let loaderBox = document.querySelector(".loaderBox");
-  let loader = document.querySelector(".loader");
-  
+
+      let projContainer = document.querySelector(".container");
+ 
+      showLoader(projContainer)
+
   fetch(`${API}/projects`)
     .then((response) => response.json())
     .then((projects) => {
-        
-      let projContainer = document.querySelector(".container");
+
 
       projects.forEach((proj) => {
         projContainer.innerHTML += `
@@ -56,13 +73,11 @@ function getProjectsData() {
         </div>
         <div class="btn-box hide">
          <button onclick='window.open("${proj.repoLink}")'>Visit GitHub Repo</button>
-         ${
-           proj.liveLink
-             ? `<button onclick='window.open("${proj.liveLink}")'>Live Demo</button>`
-             : ""
-         }
-         ${
-            proj.apkDownloadLink
+         ${proj.liveLink
+            ? `<button onclick='window.open("${proj.liveLink}")'>Live Demo</button>`
+            : ""
+          }
+         ${proj.apkDownloadLink
             ? `<a href="${proj.apkDownloadLink}">
           <button>Download APK</button>
             </a>`
@@ -71,47 +86,67 @@ function getProjectsData() {
           </div>`;
       });
     })
-    .finally(() => {
-      loader.style.animation = 'none';
-      loaderBox.remove()
+    .catch(error => {
+        console.error(error);
     })
+   .finally(() => hideLoader(projContainer))
 }
 
-function getCertData(){
-    fetch("../data/cert.json")
+function getCertData() {
+      let certContainer = document.querySelector(".cert-container");
+      certContainer.style.display = 'flex'
+      showLoader(certContainer)
+
+  fetch(`${API}/certs`)
     .then(response => response.json())
     .then((certs) => {
-      let certContainer = document.querySelector(".cert-container");
+      certs.forEach(cert => {
         console.log(cert)
-        certs.forEach(cert => {
-       certContainer.innerHTML += `
+        certContainer.innerHTML += `
                 <div class="certCard">
         <div class="imgBox">
-          <img src="${cert.thumbnail}" onerror="this.onerror=null; this.src='assets/images/upload error.svg';" alt="Not Found" />
+          <img src="data:image/jpeg;base64,${cert.certThumbnail.imageData}" onerror="this.onerror=null; this.src='../assets/images/upload error.svg'; this.classList.add('image-error');"  alt="${cert.certName}" />
         </div>
-       <button onclick='window.open("${cert.pdfLink}")'>View PDF</button>
+       <button onclick='window.open("${API}/certs/${cert.certId}/pdf")'>View PDF</button>
       </div>
       `
-        });
+      });
+    })
+    .catch(error => {
+        console.error(error);
+    })
+    .finally(() => {
+      hideLoader(certContainer)
+      certContainer.style.display = 'grid'
     })
 }
 
 
 function getSkillsData() {
-  fetch("../data/skills.json")
+  let skillContainer = document.querySelector(".row");
+
+  showLoader(skillContainer)
+
+  fetch(`${API}/skills`)
     .then((response) => response.json())
     .then((skills) => {
-      let skillContainer = document.querySelector(".row");
 
       skills.forEach((skill) => {
         skillContainer.innerHTML += `
                   <div class="skill-card">
-                      <img src="${skill.icon}" onerror="this.onerror=null; this.src='assets/images/upload error.svg';"  alt="Not Found" />
-                      <span>${skill.name}</span>
+                      <img src="${skill.skillIconUrl}" onerror="this.onerror=null; this.src='assets/images/upload error.svg';"  alt="Not Found" />
+                      <span title="${skill.skillName}">${skill.skillName}</span>
                   </div>`;
       });
-    });
+    })
+    .catch(error => {
+        hideLoader(skillContainer);
+        console.error(error);
+    })
+     .finally(() => hideLoader(skillContainer))
 }
+
+
 
 getProjectsData();
 getCertData();
