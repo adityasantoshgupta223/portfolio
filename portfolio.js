@@ -105,7 +105,7 @@ function getCertData() {
         certContainer.innerHTML += `
                 <div class="certCard">
         <div class="imgBox">
-          <img src="data:image/jpeg;base64,${cert.certThumbnail.imageData}" onerror="this.onerror=null; this.src='../assets/images/upload error.svg'; this.classList.add('image-error');"  alt="${cert.certName}" />
+          <img src="${API}/certs/images/${cert.certThumbnailId}" onerror="this.onerror=null; this.src='../assets/images/upload error.svg'; this.classList.add('image-error');"  alt="${cert.certName}" />
         </div>
        <button onclick='window.open("${API}/certs/${cert.certId}/pdf")'>View PDF</button>
       </div>
