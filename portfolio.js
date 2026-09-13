@@ -68,7 +68,7 @@ function getProjectsData() {
           <p id="project-desc">${proj.description}</p>
           </div>
         <div class="photo">
-         <img src="${API}/projects/images/${proj.thumbnailId}"  onerror="this.onerror=null; this.src='assets/images/upload error.svg'; this.classList.add('image-error');"  alt="">
+         <img src="${API}/projects/${proj.id}/images"  onerror="this.onerror=null; this.src='../assets/images/upload error.svg'; this.classList.add('image-error');"  alt="">
         </div>
         </div>
         <div class="btn-box hide">
@@ -105,7 +105,7 @@ function getCertData() {
         certContainer.innerHTML += `
                 <div class="certCard">
         <div class="imgBox">
-          <img src="${API}/certs/images/${cert.certThumbnailId}" onerror="this.onerror=null; this.src='../assets/images/upload error.svg'; this.classList.add('image-error');"  alt="${cert.certName}" />
+          <img src="${API}/certs/${cert.certId}/images" onerror="this.onerror=null; this.src='../assets/images/upload error.svg'; this.classList.add('image-error');"  alt="${cert.certName}" />
         </div>
        <button onclick='window.open("${API}/certs/${cert.certId}/pdf")'>View PDF</button>
       </div>
@@ -134,7 +134,7 @@ function getSkillsData() {
       skills.forEach((skill) => {
         skillContainer.innerHTML += `
                   <div class="skill-card">
-                      <img src="${skill.skillIconUrl}" onerror="this.onerror=null; this.src='assets/images/upload error.svg';"  alt="Not Found" />
+                      <img src="${skill.skillIconUrl}" onerror="this.onerror=null; this.src='../assets/images/upload error.svg';"  alt="Not Found" />
                       <span title="${skill.skillName}">${skill.skillName}</span>
                   </div>`;
       });
