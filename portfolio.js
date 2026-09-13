@@ -1,21 +1,4 @@
 
-let barBox = document.querySelector(".barBox");
-let box = document.querySelector(".box");
-
-barBox.addEventListener('click', () => {
-  barBox.classList.toggle('active');
-  box.classList.toggle('active');
-})
-
-
-let menuElements = document.querySelectorAll("nav ul li");
-
-menuElements.forEach(element => {
-  element.addEventListener('click', () => {
-    menuElements.forEach(element => element.classList.remove("buttonActive"));
-    element.classList.add("buttonActive");
-  })
-})
 
 function viewButtons(card) {
   card.querySelector(".btn-box").classList.remove("hide");
@@ -101,7 +84,6 @@ function getCertData() {
     .then(response => response.json())
     .then((certs) => {
       certs.forEach(cert => {
-        console.log(cert)
         certContainer.innerHTML += `
                 <div class="certCard">
         <div class="imgBox">
@@ -120,7 +102,6 @@ function getCertData() {
       certContainer.style.display = 'grid'
     })
 }
-
 
 function getSkillsData() {
   let skillContainer = document.querySelector(".row");

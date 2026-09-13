@@ -65,9 +65,9 @@ nav ul {
     list-style: none;
 }
 
-nav ul li {
+.box a {
     padding: 5px;
-    border-radius: 2px;
+    border-radius: 3px;
     cursor: pointer;
 }
 
@@ -76,16 +76,17 @@ nav ul a {
     color: white;
 }
 
-nav ul li:hover {
+.box a:hover {
     background-color: white;
     color: darkblue;
     transition-timing-function: ease-in-out;
 }
 
-nav ul li.buttonActive {
+.box a.buttonActive {
     background: rgb(33, 0, 170);
     color: white;
     transition-timing-function: ease-in-out;
+    transition-duration: 2ms;
 }
 
 
